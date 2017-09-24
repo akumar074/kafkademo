@@ -10,9 +10,9 @@ public class Publisher {
     @Autowired
     private KafkaTemplate<String, KafkaMessage> kafkaTemplate;
 
-    public void publishMessage() {
-    	KafkaMessage message = new KafkaMessage("Hi if this shows then this is working","Abhishek");
+    public String publishMessage(KafkaMessage message) {
 		kafkaTemplate.send("demoTopic", message);
         System.out.println("message produced");
+        return "Success";
     }
 }
